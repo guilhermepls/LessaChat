@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
-import 'cadastro_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class CadastroPage extends StatelessWidget {
+  const CadastroPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 60.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 16),
               const Text(
-                'LessaChat',
-                textAlign: TextAlign.center,
+                'Criar Conta',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -25,12 +27,31 @@ class LoginPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                'Conecte-se com a sua galera.',
-                textAlign: TextAlign.center,
+                'Junte-se à galera do LessaChat.',
                 style: TextStyle(fontSize: 16, color: Colors.grey[400]),
               ),
 
               const SizedBox(height: 48),
+
+              TextField(
+                style: const TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: 'Nome de usuário',
+                  hintStyle: TextStyle(color: Colors.grey[500]),
+                  prefixIcon: const Icon(
+                    Icons.person_outline,
+                    color: Colors.white70,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.1),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
 
               TextField(
                 keyboardType: TextInputType.emailAddress,
@@ -78,7 +99,7 @@ class LoginPage extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
-                    print('Clicou no botão de login');
+                    print('Clicou em cadastrar');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
@@ -89,36 +110,8 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'Entrar',
+                    'Cadastrar',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CadastroPage(),
-                    ),
-                  );
-                },
-                child: RichText(
-                  text: const TextSpan(
-                    text: 'Não tem uma conta? ',
-                    style: TextStyle(color: Colors.white70),
-                    children: [
-                      TextSpan(
-                        text: 'Cadastre-se',
-                        style: TextStyle(
-                          color: Colors.blueAccent,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ),

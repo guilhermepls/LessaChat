@@ -6,14 +6,25 @@ void main() {
 }
 
 class MeuApp extends StatelessWidget {
-	const MeuApp({super.key});
+  const MeuApp({super.key});
 
-	@override
-	Widget build(BuildContext context) {
-		return MaterialApp(
-			debugShowCheckedModeBanner: false,
-			title: 'LessaChat',
-			home: const LoginPage(),
-		);
-	}
+  @override
+  Widget build(BuildContext context) {
+    const primaryColor = Color.fromARGB(255, 25, 28, 54);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'LessaChat',
+      color: primaryColor,
+      theme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: primaryColor,
+        canvasColor: primaryColor,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: primaryColor,
+          background: primaryColor,
+        ),
+      ),
+      home: const LoginPage(),
+    );
+  }
 }
